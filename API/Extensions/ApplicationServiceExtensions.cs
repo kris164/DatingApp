@@ -6,6 +6,7 @@ using API.Data;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
+using API.Models;
 
 namespace API.Extensions
 {
@@ -17,7 +18,7 @@ namespace API.Extensions
             
                 services.AddScoped<ITokenService, TokenService>();
  
-                services.AddDbContext<DataContext>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+                services.AddDbContext<Gielda_testContext>(options => options.UseSqlServer(@"Server=MTSSERWER12A\MSSQL2012SERVER;Database=Gielda_test;Trusted_Connection=True;"));
 
                 return services;
                 
