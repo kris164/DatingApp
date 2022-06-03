@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using API.Entities;
+using API.Models;
 using API.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
@@ -20,7 +20,7 @@ namespace API.Services
           _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 
-        public string CreateToken(AppUser user)
+        public string CreateToken(API.Models.User user)
         {
             var claims = new List<Claim>
             {

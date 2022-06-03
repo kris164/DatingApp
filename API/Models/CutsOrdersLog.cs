@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace API.Models
+{
+    public partial class CutsOrdersLog
+    {
+        public int Id { get; set; }
+        public int? SolverTaskId { get; set; }
+        public int? SessionId { get; set; }
+        public int? CutTypeId { get; set; }
+        public string Powod { get; set; }
+        public int? IdZlecenia { get; set; }
+        public int? IdTaboru { get; set; }
+        public int? IdNaczepy { get; set; }
+        public int? IdKierowcy { get; set; }
+    }
+}
