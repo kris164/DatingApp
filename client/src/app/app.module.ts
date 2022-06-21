@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule} from '@angular/forms'
  
 import { AppComponent } from './app.component';
@@ -19,6 +19,10 @@ import { AuthGuard } from './_guards/auth.guard';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { SharedModule } from './_modules/shared.module';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
  
  
 const routes: Routes = [
@@ -32,6 +36,9 @@ const routes: Routes = [
       
     ]
   } ,
+  {path: 'errors', component: TestErrorsComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'server-error', component: ServerErrorComponent},
   { path: '**', component: AppComponent, pathMatch:'full' },
 ];
 
@@ -41,7 +48,10 @@ const routes: Routes = [
     NavComponent,
     HomeComponent,
     ResgisterComponent,
-    ZleceniaComponent
+    ZleceniaComponent,
+    TestErrorsComponent,
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,   DropDownListModule,
@@ -53,7 +63,9 @@ const routes: Routes = [
      RouterModule.forRoot(routes),
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi :true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
