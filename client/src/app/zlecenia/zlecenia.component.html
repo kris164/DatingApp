@@ -1,0 +1,13 @@
+<div class="control-section">
+    <ejs-dropdownlist id='value' #sample index='0' width='220' [dataSource]='ddlData' (change)='valueChange($event)' [fields]='fields' [popupHeight]='height'></ejs-dropdownlist>
+    <span id='msg'></span>
+    <br/>
+    <ejs-grid #overviewgrid id='overviewgrid' [dataSource]='data' rowHeight='38' [allowSelection]='true' [allowSorting]='true' height='600' (dataBound)='onDataBound($event)' [enableHover]='false' [enableHeaderFocus]='true' [selectionSettings]='selectionSettings' [filterSettings]='filterSettings' [allowSorting]='true' [allowFiltering]='true' [enableVirtualization]='true'>
+        <e-columns>
+             
+            
+            <e-column field='OrderID' headerText='Current Salary'   width='160'></e-column>
+            <e-column field='CustomerID' headerText='Address'   width='240'></e-column>
+        </e-columns>
+    </ejs-grid>   
+</div>

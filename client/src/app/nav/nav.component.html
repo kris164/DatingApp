@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color:#515e25!important">
+<div class ="bs-component">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #000!important;" >
   
         <div class="container">
 
@@ -6,30 +7,29 @@
             <a class="navbar-brand" href="#">PickAndGo</a>
         
             <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUserSource$ | async">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <ng-container  *ngIf="accountService.currentUserSource$ | async">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Dostepne ładunki</a>
+                  <a class="nav-link" routerLink="/orders" routerLinkActive="active" aria-current="page" href="#">Zlecenia</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Panel przewoźnika</a>
+                  <a class="nav-link" routerLink="/second-component" routerLinkActive="active" aria-current="page" href="#">Zlecenia2</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link">Messages</a>
-                </li> 
+              </ng-container>
               </ul>
  
 
-                <div class="btn-group" *ngIf="accountService.currentUserSource$ | async" dropdown     style=" position: absolute;
+                <div class="btn-group" *ngIf="(accountService.currentUserSource$ | async) as user" dropdown     style=" position: absolute;
                 right: 150px;">
                   <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-success"
                           aria-controls="dropdown-basic">
-                          Welcome user<span class="caret"></span>
+                          Cześć {{user.username | titlecase}}!<span class="caret"></span>
                   </button>
                   <ul id="dropdown-basic mt-3" *dropdownMenu class="dropdown-menu"
                       role="menu" aria-labelledby="button-basic"> 
-                    <li role="menuitem"><a class="dropdown-item" href="#">Edit Profile</a></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#">Panel przewoźnika</a></li>
                     <li class="divider dropdown-divider"></li>
-                    <li role="menuitem"> <a class="dropdown-item" (click)="logout()">Logout</a>
+                    <li role="menuitem"> <a class="dropdown-item" (click)="logout()">Wyloguj</a>
                     </li>
                   </ul>
                 </div>
@@ -41,10 +41,11 @@
               right: 150px;">
                 <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username"  >
                 <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password"  >
-                <button class="btn btn-outline-success" type="submit">Login</button>
+                <button class="btn btn-success" type="submit">Login</button>
               </form>
             </div>
           </div>
-        </div>    
- 
-  </nav>
+          
+        </div>  
+  </nav> 
+</div>

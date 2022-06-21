@@ -1,0 +1,67 @@
+// In real applications, you should not transpile code in the browser.
+// You can see how to create your own application with Angular and DevExtreme here:
+// https://js.devexpress.com/Documentation/Guide/Angular_Components/Getting_Started/Create_a_DevExtreme_Application/
+window.config = {
+    transpiler: 'ts',
+    typescriptOptions: {
+      module: 'system',
+      emitDecoratorMetadata: true,
+      experimentalDecorators: true,
+    },
+    meta: {
+      'typescript': {
+        'exports': 'ts',
+      }, 
+    },
+    paths: {
+      'npm:': 'https://unpkg.com/',
+    },
+    map: {
+      'ts': 'npm:plugin-typescript@8.0.0/lib/plugin.js',
+      'typescript': 'npm:typescript@4.3.5/lib/typescript.js',
+      '@angular/core': 'npm:@angular/core@12.2.16',
+      '@angular/platform-browser': 'npm:@angular/platform-browser@12.2.16',
+      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic@12.2.16',
+      '@angular/forms': 'npm:@angular/forms@12.2.16',
+      '@angular/common': 'npm:@angular/common@12.2.16',
+      '@angular/compiler': 'npm:@angular/compiler@12.2.16',
+      'tslib': 'npm:tslib@2.3.1/tslib.js',
+      'rxjs': 'npm:rxjs@6.4.0',
+      
+      'rrule': 'npm:rrule@2.6.6/dist/es5/rrule.js',
+      'luxon': 'npm:luxon@1.28.0/build/global/luxon.min.js',
+      'es6-object-assign': 'npm:es6-object-assign@1.1.0',
+    
+      'jszip': 'npm:jszip@3.7.1/dist/jszip.min.js',
+      
+     
+      'inferno': 'npm:inferno@7.4.11/dist/inferno.min.js',
+      'inferno-compat': 'npm:inferno-compat@7.4.11/dist/inferno-compat.min.js',
+      'inferno-create-element': 'npm:inferno-create-element@7.4.11/dist/inferno-create-element.min.js',
+      'inferno-dom': 'npm:inferno-dom/dist/inferno-dom.min.js',
+      'inferno-hydrate': 'npm:inferno-hydrate@7.4.11/dist/inferno-hydrate.min.js',
+      'inferno-clone-vnode': 'npm:inferno-clone-vnode@7.4.11/dist/inferno-clone-vnode.min.js',
+      'inferno-create-class': 'npm:inferno-create-class@7.4.11/dist/inferno-create-class.min.js',
+      'inferno-extras': 'npm:inferno-extras@7.4.11/dist/inferno-extras.min.js',
+    },
+    packages: {
+      'app': {
+        main: './app.component.ts',
+        defaultExtension: 'ts',
+      },
+      
+      'es6-object-assign': {
+        main: './index.js',
+        defaultExtension: 'js',
+      },
+    },
+    packageConfigPaths: [
+       
+      'npm:@angular/*/package.json',
+      'npm:@angular/common@12.2.16/*/package.json',
+      'npm:rxjs@6.4.0/package.json',
+      'npm:rxjs@6.4.0/operators/package.json',
+      
+    ],
+  };
+  System.config(window.config);
