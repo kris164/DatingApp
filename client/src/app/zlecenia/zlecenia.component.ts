@@ -3,7 +3,7 @@ import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
-import { FilterService, GridComponent,IFilter,VirtualScrollService  } from '@syncfusion/ej2-angular-grids';
+import { FilterService, FilterSettingsModel, GridComponent,GroupService,IFilter,PageService,PageSettingsModel,SortService,VirtualScrollService  } from '@syncfusion/ej2-angular-grids';
 import { ToastrService } from 'ngx-toastr';
  
 import { AccountService } from '../_services/account.service';
@@ -19,9 +19,15 @@ if (!/localhost/.test(document.location.host)) {
   templateUrl: './zlecenia.component.html',
   styleUrls: ['./zlecenia.component.css'],
   preserveWhitespaces: true,
-  providers: [FilterService,VirtualScrollService]
+  providers: [FilterService,VirtualScrollService,PageService,
+    SortService,
+    FilterService,
+    GroupService]
 })
 export class ZleceniaComponent implements OnInit {   
+    public customAttributes: Object;
+    public filterOption: FilterSettingsModel = { type: 'Excel' };
+    public pageSettings: PageSettingsModel;
   public dReady: boolean = false;
   public dtTime: boolean = false;
   public isDataBound: boolean = false;
@@ -33,6 +39,7 @@ export class ZleceniaComponent implements OnInit {
   public dropSlectedIndex: number = null;
   public stTime: any;
   public data: Object;
+  public dataq: any;
   public filter: Object;
   public filterSettings: Object;
   public selectionSettings: Object;  
@@ -49,13 +56,17 @@ export class ZleceniaComponent implements OnInit {
   public fields: Object = { text: 'text', value: 'value' };
   public item: number[] = [1, 2, 3, 4, 5];  
   constructor(private accountService: AccountService, private toastr: ToastrService) { }
-  public ngOnInit(): void {
-      this.data =  this.accountService.orders();
+  public async ngOnInit(): Promise<void> {
+    this.pageSettings = { pageSize: 15 };
+    console.log(getData());
+    console.log(await this.accountService.fetchData2());
+      this.data = await  this.accountService.fetchData2();
+      //this.data =  this.accountService.getOrders();
       this.filterSettings = { type: "Menu" };      
       this.filter = { type: "CheckBox" };    
      this.stTime = performance.now();
       this.selectionSettings = {persistSelection: true, type: "Multiple", checkboxOnly: true };
-     
+      this.customAttributes = {class: 'customcss'};
   }
   
   ngAfterViewInit(args: any): void {
@@ -88,7 +99,7 @@ export class ZleceniaComponent implements OnInit {
            contentElement.scrollTop = 0;
            this.gridInstance.pageSettings.currentPage = 1;
            this.stTime = performance.now();
-           this.gridInstance.dataSource = getData();
+           this.gridInstance.dataSource =  this.data;
            this.gridInstance.hideSpinner();     
        }, 100);
   }

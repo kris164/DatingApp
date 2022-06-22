@@ -17,7 +17,7 @@ namespace API.Controllers
             [HttpGet]
             public async Task<ActionResult<IEnumerable<API.Models.Zlecenium>>> GetOrders()
             {
-                return await _context.Zlecenia.Where(s=>s.Status == "FO" && s.PrzewoznikId == 0).ToListAsync(); 
+                return await _context.Zlecenia.Where(s=>s.Status == "FO").ToListAsync(); 
             } 
  
     }
