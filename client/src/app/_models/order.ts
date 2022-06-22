@@ -1,4 +1,214 @@
 export interface Order {
-    IdZlecenia: number;
-    NrZlecenia: string;
+    idZlecenia: number;
+    nrZlecenia: string;
+    aStatOplac: 0
+aStawkaPw: 0
+aStawkaUst: 0
+aStawkaUstM: 0
+aSumaFraPw: 0
+aSumaKmPw: 0
+adr: 0
+anulowane: 0
+asystaPkt: 0
+asystaUzytkownikId: 0
+bezSfm: 0
+cenaZaMZawy: 0
+cenaZaMZawyWal: ""
+cennikFtl: ""
+cennikFtlId: 0
+cennikFtlP: ""
+cennikFtlPId: 0
+clenie: 0
+cmr: ""
+cmrId: 0
+createDate: Date
+createIdUser: 275
+createTime: "1899-12-30T15:20:42.497"
+createUserName: "Anna Olszowska"
+cysternaDoPelna: 0
+dataCmr: null
+dataKontrWykazWl: null
+dataPotwierdzenia: null
+dataRozladFk: "2021-12-30T00:00:00"
+dataWyk: null
+dataZlecenia: "2021-12-27T00:00:00"
+dlugosc: 0
+dodFrachtWewn: 0
+dodIl: 0
+dodJm: ""
+dodOpakowania: ""
+dokOk: 0
+dokOkData: null
+dyspozytor: ""
+dyspozytorId: 0
+dzial: ""
+emiOrgId: 0
+faktura: ""
+fakturaData: null
+fakturaK: ""
+fakturaKZb: ""
+fakturaKZbId: 0
+fakturaPf: ""
+fakturaZb: ""
+fakturaZbId: 0
+formaPlatnosciK: "überweisung"
+formaPlatnosciP: "PRZELEW"
+frmId: 1
+godzZlecenia: "1899-12-30T15:19:09.16"
+idctk: 0
+iloscOpakowan: 0
+infoDlaKsieg: ""
+infoDod: ""
+infoDodKl: "\r\n"
+jednWagi: "KG"
+jestRw: 0
+jestUbezp: 0
+jezykZlecenia: ""
+kierowca1: null
+kierowca1Do: ""
+kierowca1Id: 0
+kierowca1Tel: ""
+kierowca2: ""
+kierowca2Do: ""
+kierowca2Id: 0
+kierowca2Tel: ""
+klientAdres: "Industriestrasse 15"
+klientId: 9202
+klientKod: "51545"
+klientKont: ""
+klientKraj: "DE"
+klientMiasto: "Waldbröl"
+klientNazwa: "CASPARI GMBH & Co. KG"
+klientNip: "DE122543464"
+klientSymbol: "CASPARI"
+klientTel: "+4922919231-0"
+kontener: null
+kontenerId: 0
+kubaturaPojazdu: 0
+kursWgK: "DWY"
+kursWgP: "DWY"
+kursZDniaPK: 1
+kursZDniaPP: -1
+kwotaK: 523.8
+kwotaKUstalona: 0
+kwotaP: 0
+kwotaPUstalona: 0
+liczbaZawy: 0
+listyLiniowe: ""
+listyLinioweId: 0
+lokalizacja: "MASZ_GMBH"
+lokalizacjaNadz: ""
+lokalizacjaPosr: ""
+maszKwotaK: 523.8
+miesRozl: 0
+mobilesequence: 0
+mobilestatus: 0
+modifyDate: null
+modifyIdUser: 0
+modifyTime: null
+modifyUserName: ""
+myjnia: 0
+naczepa: ""
+naczepaId: 0
+naczepaKlienta: 0
+naczepaNrBoczny: ""
+naczepaPaletyBilans: 0
+naczepaPaletyKon: 0
+naczepaPaletyPocz: 0
+nrAwb: ""
+nrAwbLot: ""
+nrAwbLotId: 0
+nrAwbOdb: ""
+nrAwbOdbId: 0
+nrBl: ""
+nrBlArm: ""
+nrBlArmId: 0
+nrBlOdb: ""
+nrBlOdbId: 0
+nrZlecKolejny: 0
+nrZlecKolejnyK: 0
+nrZlecMies: 0
+nrZlecMiesK: 0
+nrZlecRok: 0
+nrZlecRokK: 0
+
+nrZleceniaK: "2021-09466/47131"
+objetoscLadunku: 0
+odcKrajowyK: 523.8
+odcKrajowyKmK: 0
+odcKrajowyKmP: 0
+odcKrajowyP: 0
+odcKrajowyVatIdK: "23"
+odcKrajowyVatIdP: "NP"
+odcKrajowyVatK: 23
+odcKrajowyVatP: 0
+odcUeK: 0
+odcUeKmK: 0
+odcUeKmP: 0
+odcUeP: 0
+odcUeVatIdK: "23"
+odcUeVatIdP: "NP"
+odcUeVatK: 23
+odcUeVatP: 0
+odcZagranicznyK: 0
+odcZagranicznyKmK: 0
+odcZagranicznyKmP: 0
+odcZagranicznyP: 0
+odcZagranicznyVatIdK: "23"
+odcZagranicznyVatIdP: "NP"
+odcZagranicznyVatK: 23
+odcZagranicznyVatP: 0
+oddzialAdres: ""
+oddzialId: 0
+oddzialKod: ""
+oddzialKraj: ""
+oddzialMiasto: ""
+oddzialNazwa: ""
+odprawaCelnaWwoz: ""
+odprawaCelnaWwozId: 0
+odprawaCelnaWywoz: ""
+odprawaCelnaWywozId: 0
+odprawaGraniczna: ""
+odprawaGranicznaId: 0
+oferta: ""
+ofertaId: 0
+ofertaPozycjaId: 0
+ok: 0
+opiekun: "Hanna Bieńko"
+opisTowaru: "OPAKOWANIA"
+opisTowaruHaccp: ""
+opisTowaruSqas: ""
+opisTowaruUn: ""
+opisWymagTaboru: ""
+orgFrachtP: 0
+pcaDt: null
+pcaDtRz: null
+platnikAdres: null
+platnikId: 0
+platnikKod: null
+platnikKraj: null
+platnikMiasto: null
+platnikNazwa: null
+platnikNip: ""
+platnikSymbol: null
+podstProwizjiKier: 0
+podzlecenie: ""
+potwOdpr: 0
+pozycjaOferty: 0
+procentKosztow: 0
+prom: 0
+przeladunek: 0
+przewoznikAdres: null
+przewoznikEmail: ""
+trasa: ""
+zaKraj:""
+zaMiasto:""
+zaKod:""
+
+wyKraj:"" 
+wyMiasto:""
+wyKod:""
+taborProfil:"" 
+wagaLadunku:"" 
+typOpakowania:"" 
 }
