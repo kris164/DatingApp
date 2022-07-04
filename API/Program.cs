@@ -4,6 +4,7 @@ using API.Extensions;
 using API.Interfaces;
 using API.Middleware;
 using API.Services;
+using BIRService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
@@ -25,7 +26,9 @@ builder.Services.AddCors();
 
 builder.Services.AddIdentifyServices(builder.Configuration);
 
-   
+IServiceCollection serviceCollection = builder.Services.AddSingleton<RegonService>();
+var birKey = builder.Configuration.GetSection("BIRService").Value;
+builder.Services.AddTransient<IBIRSearchService>(x => new BIRSearchService(birKey));
 
    
 

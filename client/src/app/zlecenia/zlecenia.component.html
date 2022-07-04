@@ -1,23 +1,8 @@
-<div class="control-section">
-    
-    <br/>
-    <ejs-grid [dataSource]='data' [allowPaging]="true" [allowSorting]="true"
-    [allowFiltering]="true" [pageSettings]="pageSettings"  [allowGrouping]="true"  [filterSettings]='filterOption'> 
-        <e-columns>
-             
-            
-            <e-column field='zaKraj' headerText='Załadunek Kraj'   width='80'></e-column>
-            <e-column field='zaMiasto' headerText='Załadunek Miasto'   width='100'></e-column>
-            <e-column field='zaKod' headerText='Załadunek Kod'   width='80'></e-column>
-
-            <e-column field='wyKraj' headerText='Wyładunek Kraj'   width='80'></e-column>
-            <e-column field='wyMiasto' headerText='Wyładunek Miasto'   width='90'></e-column>
-            <e-column field='wyKod' headerText='Wyładunek Kod'   width='80'></e-column>
-            <e-column field='wagaLadunku' headerText='Waga'   width='70'></e-column>
-            <e-column field='jednWagi' headerText='jedn'   width='80'></e-column> 
-    
-            <e-column field='taborProfil' headerText='Wymogi taboru'   width='80'></e-column>
-            <e-column field='kwotaK' headerText='Cena EUR' [customAttributes]='customAttributes'  width='100'></e-column>
-        </e-columns>
-    </ejs-grid>   
-</div>
+<ejs-grid [dataSource]='data' [allowPaging]="true" [pageSettings]='pageSettings'>
+    <e-columns>
+        <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=90></e-column>
+        <e-column field='CustomerID' headerText='Customer ID' width=120></e-column>
+        <e-column field='Freight' headerText='Freight' textAlign='Right' format='C2' width=90></e-column>
+        <e-column field='OrderDate' headerText='Order Date' textAlign='Right' format='yMd' width=120></e-column>
+    </e-columns>
+    </ejs-grid>

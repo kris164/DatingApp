@@ -37,4 +37,14 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('/');
     this.loggedIn = false;
   }
+
+  register() {
+    //this.accountService.logout();
+    this.router.navigateByUrl('/second-component');
+    this.loggedIn = false;
+  }
+
+  isTournamentRoute() {
+    return  this.router.url.includes("/second-component");
+}
 }

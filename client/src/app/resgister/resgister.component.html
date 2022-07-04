@@ -1,22 +1,374 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<div class="control-container"  >  
+    <ejs-carousel [selectedIndex]="selectedIndex" [autoPlay]="false" [showIndicators]="false"
+    >
+      <e-carousel-items>
+        <e-carousel-item>
+          <ng-template #template>
+            <figure class="img-container">
+         
+              <figcaption class="img-caption">Cardinal</figcaption>
+              <div class="control-section">
+                <div class="col-lg-12">
+                     
+                        <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
+            <hr>
+                <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
+                    <form id="template_driven" #userForm="ngForm" novalidate>
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': name.valid}">
+                                    <input style="font-size: 22px;"  type="text" id="nip" name="nip" [(ngModel)]="company.nip" #name="ngModel" required>
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text"  for="name">Podaj NIP</label>                        
+                                </div>
+                                <span class="e-error" *ngIf="name.errors && name.errors.required && (name.dirty || name.touched)" >
+                                    * Enter your first name
+                                </span>  
+                            </div>
+                            <div *ngIf="isShown">
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': nazwa.valid}">
+                                    <input type="text" id="nazwa" #nazwa='ngModel' [(ngModel)]="company.nazwa" name="nazwa" required>
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.nazwa !== '' , 'e-label-bottom':  company.nazwa == ''}" for="nazwa">Nazwa</label>                        
+                                </div>
+                                <span class="e-error" *ngIf="nazwa.errors && nazwa.errors.required && (nazwa.dirty || nazwa.touched)" danger padding-left>
+                                    * Enter your last name
+                                </span>
+                            </div>
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': miejscowosc.valid}">
+                                    <input type="text" id="miejscowosc" name="miejscowosc" [(ngModel)]="company.miejscowosc" #miejscowosc="ngModel" minlength="2" required >
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.miejscowosc !== '' , 'e-label-bottom':  company.miejscowosc == ''}" for="name">Miejscowość</label>                            
+                                </div>
+                                <span class="e-error" *ngIf="miejscowosc.errors && miejscowosc.errors.required && (miejscowosc.dirty || miejscowosc.touched)" >
+                                    * Enter your miejscowosc
+                                </span>
+                                <span  class="e-error" *ngIf="miejscowosc.errors && miejscowosc.errors.minlength" >
+                                    * Enter a valid miejscowosc
+                                </span>
+                            </div>
+            
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': kodPocztowy.valid}">
+                                    <input type="text" id="kodPocztowy" name="kodPocztowy" [(ngModel)]="company.kodPocztowy" #kodPocztowy="ngModel" minlength="6" required >
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.kodPocztowy !== '' , 'e-label-bottom':  company.kodPocztowy == ''}" for="name">Kod Pocztowy</label>                            
+                                </div>
+                                <span class="e-error" *ngIf="kodPocztowy.errors && kodPocztowy.errors.required && (kodPocztowy.dirty || kodPocztowy.touched)" >
+                                    * Enter your kodPocztowy
+                                </span>
+                                <span  class="e-error" *ngIf="kodPocztowy.errors && kodPocztowy.errors.minlength" >
+                                    * Enter a valid kodPocztowy
+                                </span>
+                            </div>
+            
+            
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': ulica.valid}">
+                                    <input type="text" id="ulica" name="ulica" [(ngModel)]="company.ulica" #ulica="ngModel" minlength="6" required >
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.ulica !== '' , 'e-label-bottom':  company.ulica == ''}" for="name">Ulica</label>                            
+                                </div>
+                                <span class="e-error" *ngIf="ulica.errors && ulica.errors.required && (ulica.dirty || ulica.touched)" >
+                                    * Enter your ulica
+                                </span>
+                                <span  class="e-error" *ngIf="ulica.errors && ulica.errors.minlength" >
+                                    * Enter a valid ulica
+                                </span>
+                            </div>
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': nrNieruchomosci.valid}">
+                                    <input type="text" id="nrNieruchomosci" name="nrNieruchomosci" [(ngModel)]="company.nrNieruchomosci" #nrNieruchomosci="ngModel" minlength="1" required >
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.nrNieruchomosci !== '' , 'e-label-bottom':  company.nrNieruchomosci == ''}" for="name">Nr. nieruchomosci</label>                            
+                                </div>
+                                <span class="e-error" *ngIf="nrNieruchomosci.errors && nrNieruchomosci.errors.required && (nrNieruchomosci.dirty || nrNieruchomosci.touched)" >
+                                    * Enter your nrNieruchomosci
+                                </span>
+                                <span  class="e-error" *ngIf="nrNieruchomosci.errors && nrNieruchomosci.errors.minlength" >
+                                    * Enter a valid nrNieruchomosci
+                                </span>
+                            </div>
+            
+                            <div class="form-group template">
+                                <div class="e-float-input" [ngClass]="{'e-success': nrLokalu.valid}">
+                                    <input type="text" id="nrLokalu" name="nrLokalu" [(ngModel)]="company.nrLokalu" #nrLokalu="ngModel" minlength="1" required >
+                                    <span class="e-float-line"></span>
+                                    <label class="e-float-text" [ngClass]="{'e-label-top': company.nrLokalu !== '' , 'e-label-bottom':  company.nrLokalu == ''}" for="name">Nr. lokalu</label>                            
+                                </div>
+                                <span class="e-error" *ngIf="nrLokalu.errors && nrLokalu.errors.required && (nrLokalu.dirty || nrLokalu.touched)" >
+                                    * Enter your nrLokalu
+                                </span>
+                                <span  class="e-error" *ngIf="nrLokalu.errors && nrLokalu.errors.minlength" >
+                                    * Enter a valid nrLokalu
+                                </span>
+                            </div>
+             
+            
+                                        
+                          
+                            <input style="  margin-left:5px;" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                     <div   class="desc" style="width: 95%; margin-left:18px;"><p >      *- skonto (jeśli w Speed informacja na temat skonta jest, możemy domyślnie zaznaczyć mu checkbox w aplikacji - do jego weryfikacji), 
+                                        - gwarancję, że nie będzie podejmował ładunków bezpośrednio od zleceniodawcy, 
+                                        - musi zaakceptować regulamin 
+                                        - politykę prywatności 
+                                        -  co jeszcze</p></div>                     
+                                 
+                               
+                                       
 
-<h2 class="text-center text-primary">Utwórz przewoźnika</h2>
-<hr>
-        <div class="form-group"> 
-            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username"> 
+                            </div>    
+                            
+
+                            <div class="col-sm-10"   >
+                                <button  style="padding:5px;margin-bottom:20px;" class="btn btn-success mr-2" (click)="getCompanyByNip()" type="submit">Pobierz dane z GUS</button> 
+                                <button *ngIf="isShown" style="  float: right;  " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> 
+                            </div>
+                                                
+                        </form> 
+                        <ejs-dialog id="confirmationDialog" #Dialog [buttons]='dlgButtons' [animationSettings]='animationSettings' [header]='formHeader' [showCloseIcon]='showCloseIcon' [content]='content'  [target]='target' [width]='width' [visible]="visible" [isModal]="isModal" >
+                        </ejs-dialog>
+            
+                       
+                </div>
+               
+              </div>
+            </div>
+            </figure>
+          </ng-template>
+        </e-carousel-item>
+        <e-carousel-item>
+          <ng-template #template>
+            <figure class="img-container">
+
+                <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
+                <hr>
+                <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
+
+
+                    <div class="form-group template">
+                        <div id="mobile-no" class="e-float-input" [ngClass]="{'e-success': mobilenum.valid}">
+                            <input type="number" id="mobileno" name="mobile" [(ngModel)]="company.mobile" #mobilenum="ngModel" required pattern="^[0-9]{10}$">
+                            <span class="e-float-line"></span>
+                            <label class="e-float-text" [ngClass]="{'e-label-top': company.mobile !== '' , 'e-label-bottom':  company.mobile == ''}" for="name">Telefon</label>                                                        
+                        </div>
+                        <span class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.required && (mobilenum.dirty || mobilenum.touched)" >
+                            * Enter your mobile number
+                        </span>
+                        <span  class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.pattern && (mobilenum.dirty || mobilenum.touched)" >
+                            * Enter a valid mobile number
+                        </span>
+                    </div>
+
+
+                    <div class="form-group template">
+                        <div id="mobile-no" class="e-float-input" [ngClass]="{'e-success': email.valid}">
+                            <input type="text" id="email" name="email" [(ngModel)]="company.email" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                            <span class="e-float-line"></span>
+                            <label class="e-float-text" [ngClass]="{'e-label-top': company.email !== '' , 'e-label-bottom':  company.email == ''}" for="name">Email</label>                                                
+                        </div>
+                        <span class="e-error" *ngIf="email.errors && email.errors.required && (email.dirty || email.touched)" >
+                            * Enter your email address
+                        </span>
+                        <span  class="e-error" *ngIf="email.errors && email.errors.pattern && (email.dirty || email.touched)" >
+                            * Enter a valid email address
+                        </span>
+                    </div>
+
+                <div class="form-group template">
+                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
+                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Hasło</label>                                        
+                    </div>
+                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
+                        * Enter your password
+                    </span>
+                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
+                        * Enter a valid password
+                    </span>
+                </div>
+
+                <div class="form-group template">
+                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
+                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Powtórz hasło</label>                                        
+                    </div>
+                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
+                        * Enter your password
+                    </span>
+                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
+                        * Enter a valid password
+                    </span>
+                </div>
+                <button *ngIf="isShown" style="  float: left; margin-top: 40px; "   class="btn btn-light" (click)="prevBtnClick()">Previous</button>
+                <button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> 
+
+            </div>
+              <figcaption class="img-caption">Kingfisher</figcaption>
+            </figure>
+          </ng-template>
+        </e-carousel-item>
+
+
+
+
+
+
+
+
+        <e-carousel-item>
+            <ng-template #template>
+              <figure class="img-container">
+  
+                  <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
+                  <hr>
+                  <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
+  
+  
+                     
+  
+  
+                      <div class="form-group template">
+                        <div class="form-group template">
+                            
+                            <ejs-numerictextbox  decimals='1' [(value)]='value'></ejs-numerictextbox>
+                          </div>
+                        </div>
+                 
+  
+                 
+                  <button *ngIf="isShown" style="  float: left; margin-top: 40px; "   class="btn btn-light" (click)="prevBtnClick()">Previous</button>
+                  <button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> 
+  
+              </div>
+                <figcaption class="img-caption">Kingfisher</figcaption>
+              </figure>
+            </ng-template>
+          </e-carousel-item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <e-carousel-item>
+          <ng-template #template>
+            <figure class="img-container">
+              <img src="https://ej2.syncfusion.com/products/images/carousel/costa-rica.png" alt="keel-billed-toucan" style="height:100%;width:100%;" />
+              <figcaption class="img-caption">Keel-billed-toucan</figcaption>
+            </figure>
+          </ng-template>
+        </e-carousel-item>
+        <e-carousel-item>
+          <ng-template #template>
+            <figure class="img-container">
+              <img src="https://ej2.syncfusion.com/products/images/carousel/kaohsiung.png" alt="yellow-warbler" style="height:100%;width:100%;" />
+              <figcaption class="img-caption">Yellow-warbler</figcaption>
+            </figure>
+          </ng-template>
+        </e-carousel-item>
+        <e-carousel-item>
+          <ng-template #template>
+            <figure class="img-container">
+              <img src="https://ej2.syncfusion.com/products/images/carousel/bee-eater.png" alt="bee-eater" style="height:100%;width:100%;" />
+              <figcaption class="img-caption">Bee-eater</figcaption>
+            </figure>
+          </ng-template>
+        </e-carousel-item>
+      </e-carousel-items>
+    </ejs-carousel>
+  </div>
+
+
+
+
+
+
+
+
+
+
+    <!--<form #registerForm="ngForm" (ngSubmit)="register3()" autocomplete="off" style="width: 400px;  margin-left: auto;
+margin-right: auto;">
+
+
+ 
+<div class="content-wrapper" style="margin-top:30px;">
+        <div class="row material"> 
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <ejs-textbox placeholder="Podaj NIP"  cssClass="e-outline" floatLabelType="Auto">{{model.nip}}</ejs-textbox>
+            </div> 
         </div>
+        <div class="row material" *ngIf="isShown"> 
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <ejs-textbox placeholder="Nazwa Firmy"  cssClass="e-filled" floatLabelType="Auto"></ejs-textbox>
+            </div> 
+        </div>
+        <div class="row material" *ngIf="isShown"> 
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <ejs-textbox placeholder="Nazwa Firmy"  cssClass="e-filled" floatLabelType="Auto"></ejs-textbox>
+            </div> 
+        </div>
+ 
+    </div>
+ 
+
+    <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  id="staticEmail" value="email@example.com">
+    </div>
+  </div>
+
+          <div class="form-group row" *ngIf="isShown">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nazwa firmy:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="miejscowosc" [(ngModel)]="model.miejscowosc" placeholder="miejscowosc"> 
+            </div>
+          </div>
 
 
-     
 
-
-
-        <div class="form-group"> 
+        <div class="form-group" *ngIf="isShown"> 
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password"> 
         </div>
 
         <div class="form-group text-center"> 
-            <button class="btn btn-success mr-2" (click)="register()" type="submit">Register</button>
+            <button class="btn btn-success mr-2" (click)="getCompanyByNip()" type="submit">Rejestruj</button>
+           <button class="btn btn-success mr-2" (click)="register()" type="submit">Register</button> 
             <button class="btn btn-success mr-2" (click)="cancel()" type="submit">Cancel</button>
         </div>
-</form>
+
+
+        <div class="row">
+            <div class="col">
+                <label for="inputEmail4" class="col-form-label">{{company.nazwa}}</label>
+            </div>
+            <div class="col">
+                <label for="inputEmail4" class="col-form-label">{{company.nip}}</label>
+            </div>
+          </div> 
+
+          <div class="form-group text-center" style="margin-top:50px;"> 
+         
+         <button class="btn btn-success mr-2" (click)="register()" type="submit">Register</button> 
+            <button class="btn btn-success mr-2" (click)="cancel()" type="submit">Cancel</button>
+        </div>
+</form>-->
+
+      
+
+
+ 

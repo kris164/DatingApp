@@ -42,11 +42,17 @@
 
               <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="form-inline mt-2 mt-md-0"
                style=" position: absolute;
-              right: 150px;">
+              right: 120px;">
                 <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username"  >
                 <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password"  >
                 <button class="btn btn-success" type="submit">Login</button>
+              
               </form>
+              <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-inline mt-2 mt-md-0"
+              style=" position: absolute;
+             right: 10px;"> 
+               <button class="btn btn-success" type="submit">Rejestracja</button> 
+             </form>
             </div>
           </div>
           
