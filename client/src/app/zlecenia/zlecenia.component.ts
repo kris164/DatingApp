@@ -3,7 +3,7 @@ import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
-import { FilterService, FilterSettingsModel, GridComponent,GroupService,IFilter,PageService,PageSettingsModel,SortService,VirtualScrollService  } from '@syncfusion/ej2-angular-grids';
+import { FilterService, GridModule , FilterSettingsModel, GridComponent,GroupService,IFilter,PageService,PageSettingsModel,SortService,VirtualScrollService  } from '@syncfusion/ej2-angular-grids';
 import { ToastrService } from 'ngx-toastr';
  
 import { AccountService } from '../_services/account.service';
@@ -18,11 +18,13 @@ if (!/localhost/.test(document.location.host)) {
   selector: 'app-zlecenia',
   templateUrl: './zlecenia.component.html',
   styleUrls: ['./zlecenia.component.css'],
+  
   preserveWhitespaces: true,
   providers: [FilterService,VirtualScrollService,PageService,
     SortService,
     FilterService,
-    GroupService]
+    GroupService],
+    
 })
 export class ZleceniaComponent implements OnInit {   
     public customAttributes: Object;
