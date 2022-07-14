@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: YourFontFamily;
+    src: url("/assets/font_Montserrat") format("truetype");
+}
+
+body {
+    height: auto;
+    font-size: 100%;
+    font-family: "effra",Arial,Helvetica,sans-serif;
+    color: #696c77;
+    position: relative; 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

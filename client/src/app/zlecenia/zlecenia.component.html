@@ -1,8 +1,24 @@
-<ejs-grid [dataSource]='data' [allowPaging]="true" [pageSettings]='pageSettings'>
+<div style="margin-top:100px;"></div>
+<ejs-grid [dataSource]='data'
+ [allowPaging]="true"
+  [pageSettings]='pageSettings'
+   [allowGrouping]='true'
+     [allowFiltering]='true' 
+      [allowGrouping]='true'
+      [allowSorting]='true'
+      >
     <e-columns>
-        <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=90></e-column>
-        <e-column field='CustomerID' headerText='Customer ID' width=120></e-column>
-        <e-column field='Freight' headerText='Freight' textAlign='Right' format='C2' width=90></e-column>
+        <e-column field='zaKraj' headerText='zaKraj' textAlign='Right' width=90></e-column>
+        <e-column field='zaMiasto' headerText='zaMiasto' width=120></e-column>
+        <e-column field='zaKod' headerText='zaKod' textAlign='Right' format='C2' width=90></e-column>
+        <e-column field='wyKraj' headerText='wyKraj' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='wyMiasto' headerText='wyMiasto' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='wyKod' headerText='wyKod' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='taborProfil' headerText='taborProfil' textAlign='Right' format='yMd' width=120></e-column>
         <e-column field='OrderDate' headerText='Order Date' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='wagaLadunku' headerText='wagaLadunku' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='typOpakowania' headerText='typOpakowania' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='kwotaKUstalona' headerText='kwotaKUstalona' textAlign='Right' format='yMd' width=120></e-column>
     </e-columns>
     </ejs-grid>
+   

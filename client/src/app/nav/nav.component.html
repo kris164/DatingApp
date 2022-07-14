@@ -1,61 +1,70 @@
-<div class ="bs-component">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #000!important;" >
-  
-        <div class="container">
-
-          <div class="container-fluid">                       
-            <a class="navbar-brand" href="#">PickAndGo</a>
-        
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <ng-container  *ngIf="accountService.currentUserSource$ | async">
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/orders" routerLinkActive="active" aria-current="page"  >Zlecenia</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/second-component" routerLinkActive="active" aria-current="page"  >Przewoźnik</a>
-                </li>
-               
-              </ng-container>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/errors" routerLinkActive="active" aria-current="page"  >Errors</a>
-              </li>
-              </ul>
+<div class="container"  style=" background: #000;">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="
+position: fixed;   width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+   
+    color: #f5f5f5;
+    height: 82px;
+    z-index: 10;     /* Allow the centering to work */
+	margin: 0 auto;">
  
+  <a href="/pl" class="layout-header-logo"><img src="/assets/images/logo.png?ts=20190228-1401" alt="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k." title="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k."></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto"  style="		list-style: none;">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <ng-container  *ngIf="accountService.currentUserSource$ | async">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/orders" routerLinkActive="active" aria-current="page" style=" margin-left: 25px;  color: #f5f5f5; font-family: effra,Arial,Helvetica,sans-serif; font-size: 1.0em;"   >Firma</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/second-component" routerLinkActive="active" aria-current="page"   style="margin-left: 25px;  color: #f5f5f5;  font-family: effra,Arial,Helvetica,sans-serif; font-size:1.0em;"  >Przewoźnik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/errors" routerLinkActive="active" aria-current="page"   style="margin-left: 25px;   color: #f5f5f5; font-family: effra,Arial,Helvetica,sans-serif; font-size: 1.0em;"    >Errors</a>
+      </li>
+    </ng-container>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <div class="btn-group" *ngIf="(accountService.currentUserSource$ | async) as user" dropdown    style=" position: absolute;
+      right: 150px;">
+        <button id="button-basic" dropdownToggle type="button" class="btn default"
+                aria-controls="dropdown-basic">
+                Cześć {{user.username | titlecase}}!<span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic mt-3" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic"> 
+          <li role="menuitem"><a class="dropdown-item" href="#">Panel przewoźnika</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"> <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+          </li>
+        </ul>
+      </div>
 
-                <div class="btn-group" *ngIf="(accountService.currentUserSource$ | async) as user" dropdown     style=" position: absolute;
-                right: 150px;">
-                  <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-success"
-                          aria-controls="dropdown-basic">
-                          Cześć {{user.username | titlecase}}!<span class="caret"></span>
-                  </button>
-                  <ul id="dropdown-basic mt-3" *dropdownMenu class="dropdown-menu"
-                      role="menu" aria-labelledby="button-basic"> 
-                    <li role="menuitem"><a class="dropdown-item" href="#">Panel przewoźnika</a></li>
-                    <li class="divider dropdown-divider"></li>
-                    <li role="menuitem"> <a class="dropdown-item" (click)="logout()">Wyloguj</a>
-                    </li>
-                  </ul>
-                </div>
+     
+
+    <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="form-inline mt-2 mt-md-0"
+     style=" position: absolute;
+    right: 120px;">
+      <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username"  >
+      <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password"  >
+      <button class="btn default" type="submit">Login</button>
+    
+    </form>
+    <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-inline mt-2 mt-md-0"
+    style=" position: absolute;
+   right: 10px;"> 
+     <button class="btn default" type="submit">Rejestracja</button> 
+   </form>
+    </form>
+  </div>
  
-               
+</nav>
 
-              <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="form-inline mt-2 mt-md-0"
-               style=" position: absolute;
-              right: 120px;">
-                <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username"  >
-                <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password"  >
-                <button class="btn btn-success" type="submit">Login</button>
-              
-              </form>
-              <form *ngIf="(accountService.currentUserSource$ | async) === null" #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off" class="form-inline mt-2 mt-md-0"
-              style=" position: absolute;
-             right: 10px;"> 
-               <button class="btn btn-success" type="submit">Rejestracja</button> 
-             </form>
-            </div>
-          </div>
-          
-        </div>  
-  </nav> 
 </div>

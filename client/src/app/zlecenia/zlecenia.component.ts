@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewChild, enableProdMode } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DropDownListComponent, DropDownListModule } from '@syncfusion/ej2-angular-dropdowns'; 
 import { FilterService, GridModule , FilterSettingsModel, GridComponent,GroupService,IFilter,PageService,PageSettingsModel,SortService,VirtualScrollService  } from '@syncfusion/ej2-angular-grids';
 import { ToastrService } from 'ngx-toastr';
  
 import { AccountService } from '../_services/account.service';
 import { getData } from './data';
- 
+
 
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();

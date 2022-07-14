@@ -1,3 +1,44 @@
 .dropdown-toogle, .dropdown-item{
   cursor: pointer  ;
 }
+
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #000 !important;
+}
+
+
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#horizontal-list li {
+		display: inline;
+	}
+
+
+  .btn {
+    border: 1px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.2;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    color: white;
+  }
+
+  .btn-change {
+    color: Red;
+    background-color: white;
+  }

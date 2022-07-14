@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-import { FormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
  
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,9 +24,11 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component'; 
 import { RegisterComponent } from './register/register.component'; 
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import { GridAllModule, GridModule } from '@syncfusion/ej2-angular-grids';
+import { MojeTransportyComponent } from './moje-transporty/moje-transporty.component';
+import { MojaFlotaComponent } from './moja-flota/moja-flota.component';
+import { DaneFirmyComponent } from './dane-firmy/dane-firmy.component'; 
 const routes: Routes = [
-  //{ path: 'second-component', component: ResgisterComponent },
+   { path: 'second-component', component: ResgisterComponent },
   { path: '', component: HomeComponent },
   { path: 'orders', component: ZleceniaComponent, canActivate:[AuthGuard] },
   {
@@ -47,22 +49,22 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
- 
+    ZleceniaComponent,
     AppComponent,
     NavComponent,
     HomeComponent,
     ResgisterComponent, 
     TestErrorsComponent,
     NotFoundComponent,
-    ServerErrorComponent, RegisterComponent
+    ServerErrorComponent, RegisterComponent, MojeTransportyComponent, MojaFlotaComponent, DaneFirmyComponent
   ],
   imports: [
     BrowserModule,   DropDownListModule, 
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule, ReactiveFormsModule,
     SharedModule,
-     RouterModule.forRoot(routes), GridModule
+     RouterModule.forRoot(routes) 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi :true

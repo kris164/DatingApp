@@ -26,6 +26,7 @@
               "src/assets"
             ],
             "styles": [ 
+              "src/custom-theme.scss",
               "./node_modules/@syncfusion/ej2-base/styles/material.css",
               "./node_modules/@syncfusion/ej2-buttons/styles/material.css",
               "./node_modules/@syncfusion/ej2-dropdowns/styles/material.css",
@@ -35,19 +36,19 @@
               "./node_modules/@syncfusion/ej2-angular-dropdowns/styles/material.css",
               "./node_modules/@syncfusion/ej2-angular-dropdowns/styles/material.css",
               "./node_modules/@syncfusion/ej2-angular-grids/styles/bootstrap5.css",
-              "./node_modules/@syncfusion/ej2-angular-grids/styles/material.css",
-              "./node_modules/@syncfusion/ej2-navigations/styles/material.css", 
-              "./node_modules/@syncfusion/ej2-splitbuttons/styles/material.css",
+              "./node_modules/@syncfusion/ej2-angular-grids/styles/material.css", 
+              "./node_modules/@syncfusion/ej2-navigations/styles/material.css",
+              "./node_modules/@syncfusion/ej2-splitbuttons/styles/material.css", 
               "./node_modules/@syncfusion/ej2-angular-inputs/styles/material.css", 
               "./node_modules/@syncfusion/ej2-icons/styles/material.css", 
-              "./node_modules/@syncfusion/ej2-angular-popups/styles/material.css", 
-              "./node_modules/@syncfusion/ej2-angular-grids/styles/material.css", 
+              
+              "./node_modules/@syncfusion/ej2-angular-popups/styles/material.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootswatch/dist/united/bootstrap.min.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"  ,
               "./node_modules/ngx-toastr/toastr.css"  ,
               "./node_modules/font-awesome/css/font-awesome.css"  ,
-              "./node_modules/bootswatch/dist/united/bootstrap.css"  ,
+              "./node_modules/bootswatch/dist/united/bootstrap.css",
               "src/styles.css"
             ],
             "scripts": []

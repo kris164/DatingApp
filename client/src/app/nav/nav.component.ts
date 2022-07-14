@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
+import { ToolbarComponent, MenuAnimationSettingsModel } from '@syncfusion/ej2-angular-navigations';
 
 @Component({
   selector: 'app-nav',
@@ -11,6 +12,7 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  
   model: any = {}
   loggedIn: boolean;
 
@@ -31,6 +33,7 @@ export class NavComponent implements OnInit {
     });
   }
 
+  private animationSettings: MenuAnimationSettingsModel = { effect: 'None' };
 
   logout() {
     this.accountService.logout();

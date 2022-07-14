@@ -1,3 +1,4 @@
+<div style="margin-top:100px;"></div>
 <div class="control-container"  >  
     <ejs-carousel [selectedIndex]="selectedIndex" [autoPlay]="false" [showIndicators]="false"
     >
@@ -10,7 +11,7 @@
               <div class="control-section">
                 <div class="col-lg-12">
                      
-                        <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
+                        <h4 class="text-center text-primary">Rejestracja przewoźnika</h4> <h5 style="text-align:center;">Dane firmy (1/3)</h5>
             <hr>
                 <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
                     <form id="template_driven" #userForm="ngForm" novalidate>
@@ -142,9 +143,51 @@
           <ng-template #template>
             <figure class="img-container">
 
-                <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
+                <h4 class="text-center text-primary">Rejestracja przewoźnika</h4><h5 style="text-align:center;">Dane kontaktowe (2/3)</h5>
                 <hr>
                 <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
+
+                  <div class="form-group template">
+                    <div id="UsernameDto-no" class="e-float-input" [ngClass]="{'e-success': mobilenum.valid}">
+                        <input type="text" id="mobileno" name="UsernameDto" [(ngModel)]="company.UsernameDto" #mobilenum="ngModel" required  >
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" [ngClass]="{'e-label-top': company.UsernameDto !== '' , 'e-label-bottom':  company.UsernameDto == ''}" for="name">Login</label>                                                        
+                    </div>
+                    <span class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.required && (mobilenum.dirty || mobilenum.touched)" >
+                        * Podaj swój Login
+                    </span>
+                    <span  class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.pattern && (mobilenum.dirty || mobilenum.touched)" >
+                        * Podaj swój Login
+                    </span>
+                </div>
+
+                  <div class="form-group template">
+                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
+                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Hasło</label>                                        
+                    </div>
+                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
+                        * Podaj swoje hasło
+                    </span>
+                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
+                        * Enter a valid password
+                    </span>
+                </div>
+
+                <div class="form-group template">
+                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
+                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
+                        <span class="e-float-line"></span>
+                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Powtórz hasło</label>                                        
+                    </div>
+                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
+                        * Podaj swoje hasło
+                    </span>
+                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
+                        * Enter a valid password
+                    </span>
+                </div>
 
 
                     <div class="form-group template">
@@ -176,33 +219,7 @@
                         </span>
                     </div>
 
-                <div class="form-group template">
-                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
-                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
-                        <span class="e-float-line"></span>
-                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Hasło</label>                                        
-                    </div>
-                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
-                        * Enter your password
-                    </span>
-                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
-                        * Enter a valid password
-                    </span>
-                </div>
-
-                <div class="form-group template">
-                    <div class="e-float-input" [ngClass]="{'e-success': password.valid}">
-                        <input type="password" id="password" name="password" [(ngModel)]="company.password" #password="ngModel" minlength="6" required >
-                        <span class="e-float-line"></span>
-                        <label class="e-float-text" [ngClass]="{'e-label-top': company.password !== '' , 'e-label-bottom':  company.password == ''}" for="name">Powtórz hasło</label>                                        
-                    </div>
-                    <span class="e-error" *ngIf="password.errors && password.errors.required && (password.dirty || password.touched)" >
-                        * Enter your password
-                    </span>
-                    <span  class="e-error" *ngIf="password.errors && password.errors.minlength&& (password.dirty || password.touched)" >
-                        * Enter a valid password
-                    </span>
-                </div>
+         
                 <button *ngIf="isShown" style="  float: left; margin-top: 40px; "   class="btn btn-light" (click)="prevBtnClick()">Previous</button>
                 <button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> 
 
@@ -213,64 +230,183 @@
         </e-carousel-item>
 
 
-
-
-
-
-
-
-        <e-carousel-item>
-            <ng-template #template>
-              <figure class="img-container">
-  
-                  <h2 class="text-center text-primary">Rejestracja przewoźnika</h2>
-                  <hr>
-                  <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
-  
-  
-                     
-  
-  
-                      <div class="form-group template">
-                        <div class="form-group template">
-                            
-                            <ejs-numerictextbox  decimals='1' [(value)]='value'></ejs-numerictextbox>
-                          </div>
-                        </div>
-                 
-  
-                 
-                  <button *ngIf="isShown" style="  float: left; margin-top: 40px; "   class="btn btn-light" (click)="prevBtnClick()">Previous</button>
-                  <button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> 
-  
-              </div>
-                <figcaption class="img-caption">Kingfisher</figcaption>
-              </figure>
-            </ng-template>
-          </e-carousel-item>
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
         <e-carousel-item>
           <ng-template #template>
             <figure class="img-container">
-              <img src="https://ej2.syncfusion.com/products/images/carousel/costa-rica.png" alt="keel-billed-toucan" style="height:100%;width:100%;" />
-              <figcaption class="img-caption">Keel-billed-toucan</figcaption>
+  
+                <h4 class="text-center text-primary">Rejestracja przewoźnika</h4><h5 style="text-align:center;">Flota (3/3)</h5>
+                <hr>
+                <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">  
+                    <div class="container">
+                      <div class="row" style="margin-top: 20px;">
+                          <div class="col-sm-8">   
+                              <div class="stepper-input stepper__input">
+                                <h4 style="color:#16489d;">Ciągnik siodłowy</h4> <hr>
+                              </div>
+                          </div>
+                            <div class="col-sm-4"> 
+                                <div class="stepper-input stepper__input">
+                                    <button class="toggle-less"  (click)="toggleLess_ciagnik_siodlowy()">
+                                      <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                    </button>
+                                    <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                       {{renderedValue_ciagnik_siodlowy}}  
+                                    </div>
+                                    <button class="toggle-more" (click)="toggleMore_ciagnik_siodlowy()">
+                                      <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                    </button>
+                                </div> 
+                            </div>
+                      </div> 
+
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-8">   
+                            <div class="stepper-input stepper__input">
+                              <h4 style="color:#16489d;">Ciągnik trójosiowy</h4> <hr>
+                            </div>
+                        </div>
+                          <div class="col-sm-4"> 
+                              <div class="stepper-input stepper__input">
+                                  <button class="toggle-less"  (click)="toggleLess_ciagnik_trojosiowy()">
+                                    <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                  </button>
+                                  <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                     {{renderedValue_ciagnik_trojosiowy}}  
+                                  </div>
+                                  <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy()">
+                                    <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                  </button>
+                              </div> 
+                          </div>
+                        </div> 
+
+
+
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-sm-8">   
+                                <div class="stepper-input stepper__input">
+                                  <h4 style="color:#16489d;">Ciągnik typu mega</h4> <hr>
+                                </div>
+                            </div>
+                              <div class="col-sm-4"> 
+                                  <div class="stepper-input stepper__input">
+                                      <button class="toggle-less"  (click)="toggltoggleLess_ciagnik_trojosiowy_typu_mega()">
+                                        <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                      </button>
+                                      <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                         {{renderedValue_ciagnik_typu_mega}}  
+                                      </div>
+                                      <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy_typu_mega()">
+                                        <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                      </button>
+                                  </div> 
+                              </div>
+                            </div> 
+
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-sm-8">   
+                                    <div class="stepper-input stepper__input">
+                                      <h4 style="color:#16489d;">Ciągnik typu mega</h4><p>regul. wysokość sidła)</p> <hr>
+                                    </div>
+                                </div>
+                                  <div class="col-sm-4"> 
+                                      <div class="stepper-input stepper__input">
+                                          <button class="toggle-less"  (click)="toggltoggleLess_ciagnik_trojosiowy_typu_mega_regul()">
+                                            <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                          </button>
+                                          <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                             {{renderedValue_ciagnik_typu_mega_regul}}  
+                                          </div>
+                                          <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy_typu_mega_regul()">
+                                            <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                          </button>
+                                      </div> 
+                                  </div>
+                                </div>
+                                
+                                
+                                <div class="row" style="margin-top: 20px;">
+                                    <div class="col-sm-8">   
+                                        <div class="stepper-input stepper__input">
+                                          <h4 style="color:#16489d;">Jumbo samochód z przyczepą</h4>  <hr>
+                                        </div>
+                                    </div>
+                                      <div class="col-sm-4"> 
+                                          <div class="stepper-input stepper__input">
+                                              <button class="toggle-less"  (click)="toggltoggleLess_jumbo_z_przyczepa()">
+                                                <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                              </button>
+                                              <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                                 {{renderedValue_value_jumbo_z_przyczepa}}  
+                                              </div>
+                                              <button class="toggle-more" (click)="toggleMore_jumbo_z_przyczepa()">
+                                                <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                              </button>
+                                          </div> 
+                                      </div>
+                                    </div> 
+
+
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-sm-8">   
+                                            <div class="stepper-input stepper__input">
+                                              <h4 style="color:#16489d;">Naczepa oplandekowana</h4>  <hr>
+                                            </div>
+                                        </div>
+                                          <div class="col-sm-4"> 
+                                              <div class="stepper-input stepper__input">
+                                                  <button class="toggle-less"  (click)="toggleLess_naczepa_oplandekowana()">
+                                                    <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                                  </button>
+                                                  <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                                     {{renderedValue_naczepa_oplandekowana}}  
+                                                  </div>
+                                                  <button class="toggle-more" (click)="toggleMore_naczepa_oplandekowana()">
+                                                    <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                                  </button>
+                                              </div> 
+                                          </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="col-sm-8">   
+                                                <div class="stepper-input stepper__input">
+                                                  <h4 style="color:#16489d;">Mega naczepa oplandekowana</h4>  <hr>
+                                                </div>
+                                            </div>
+                                              <div class="col-sm-4"> 
+                                                  <div class="stepper-input stepper__input">
+                                                      <button class="toggle-less"  (click)="toggleLess_mega_naczepa_oplandekowana()">
+                                                        <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                                      </button>
+                                                      <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                                         {{renderedValue_mega_naczepa_oplandekowana}}  
+                                                      </div>
+                                                      <button class="toggle-more" (click)="toggleMore_mega_naczepa_oplandekowana()">
+                                                        <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                                      </button>
+                                                  </div> 
+                                              </div>
+                                            </div>
+    
+
+
+                    </div> 
+                </div> 
+
+                <button *ngIf="isShown" style="  float: left; margin-top: 40px; "   class="btn btn-light" (click)="prevBtnClick()">Previous</button>
+                <!--<button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="nextBtnClick()" type="submit">Dalej ></button> -->
+                <button *ngIf="isShown" style="  float: right; margin-top: 40px; " class="btn btn-success mr-2" (click)="register()" type="submit">Register</button> 
             </figure>
+            
           </ng-template>
         </e-carousel-item>
+
         <e-carousel-item>
           <ng-template #template>
             <figure class="img-container">

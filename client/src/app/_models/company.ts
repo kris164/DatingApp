@@ -17,5 +17,14 @@ export interface company {
     dataZakonczeniaDzialalnosci: string
     miejscowoscPoczty: string
     errors: []
-
+    ciagnikSiodlowy: number
+    ciagnikTrojosiowy: number
+    ciagnikTypuMega: number
+    ciagnikTypuMegaReagul: number
+    jumbo: number
+    naczepaOplanegkowana: number
+    megaNaczepaOplanegkowana: number
+    Password: string
+    UserName: string
+    UsernameDto: string
 }

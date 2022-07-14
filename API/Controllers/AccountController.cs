@@ -24,17 +24,38 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto){
+        public async Task<ActionResult<UserDto>> Register(User registerDto){
 
 
-            if  (await UserExists(registerDto.Username)) 
-                return BadRequest("Username is taken");
+            if  (await NipExists(registerDto.nip)) 
+                return BadRequest("nip juz istenieje");
  
                 using var hmac = new HMACSHA512();
                 var user = new API.Models.User{ 
-                    UserName = registerDto.Username.ToLower() ,
+                     UserName = registerDto?.UserName.ToLower() ,
                     PasswordHash= hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                    PasswordSalt=hmac.Key
+                    PasswordSalt=hmac.Key,
+                     nip=registerDto.nip,
+                     kodPocztowy=registerDto.kodPocztowy,
+                     regon=registerDto.regon,
+                     statusNip=registerDto.statusNip,
+                     nazwa=registerDto.nazwa,
+                     wojewodztwo=registerDto.wojewodztwo,
+                     powiat=registerDto.powiat,
+                     gmina=registerDto.gmina,
+                     miejscowosc=registerDto.miejscowosc,
+                     ulica=registerDto.ulica,
+                     nrNieruchomosci=registerDto.nrNieruchomosci,
+                     nrLokalu=registerDto.nrLokalu,
+                     miejscowoscPoczty=registerDto.miejscowoscPoczty,
+                     ciagnikSiodlowy=registerDto.ciagnikSiodlowy,
+                     ciagnikTrojosiowy=registerDto.ciagnikTrojosiowy,
+                     ciagnikTypuMega=registerDto.ciagnikTypuMega,
+                     ciagnikTypuMegaReagul=registerDto.ciagnikTypuMegaReagul,
+                     jumbo=registerDto.jumbo,
+                     naczepaOplanegkowana=registerDto.naczepaOplanegkowana,
+                     megaNaczepaOplanegkowana=registerDto.megaNaczepaOplanegkowana,
+
                     };
 
                     _context.Add(user);
@@ -71,6 +92,11 @@ namespace API.Controllers
 
         private async Task<bool> UserExists(string username){
             return await _context.Users.AnyAsync(z => z.UserName == username.ToLower());
+        }
+
+
+         private async Task<bool> NipExists(string nip){
+            return await _context.Users.AnyAsync(z => z.nip == nip);
         }
     }
 }

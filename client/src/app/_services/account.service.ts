@@ -5,6 +5,7 @@ import { catchError, map , filter, switchMap, retry, subscribeOn} from 'rxjs/ope
 import { Order } from '../_models/order';
 import { User } from '../_models/user';
 import { SearchResults } from '../_models/SearchResults'; 
+import { company } from '../_models/company';
 
  @Injectable({
   providedIn: 'root'
@@ -13,8 +14,10 @@ export class AccountService {
 
   baseUrl= 'https://localhost:5002/api/';
   private currentUserSource = new ReplaySubject<User>(1);
+  private currentComapnySource = new ReplaySubject<company>(1);
   private currentorders = new ReplaySubject<Order>();
   currentUserSource$ = this.currentUserSource.asObservable();
+  currentComapnySource$ = this.currentComapnySource.asObservable();
   currentorders$ = this.currentorders.asObservable();
   totalAngularPackages: any;
     localVar:any;
@@ -157,12 +160,12 @@ getHeroes(): Observable<Order[]> {
       })
       );
    }
-register(model:any){
+register(model:company){
   return this.http.post(this.baseUrl + 'account/register', model).pipe(
-  map((user: User )=> {
+  map((user: company )=> {
     { 
       localStorage.setItem('user', JSON.stringify(user))
-      this.currentUserSource.next(user);
+      this.currentComapnySource.next(user);
     }
     return user;
   })
