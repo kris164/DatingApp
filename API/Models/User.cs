@@ -36,5 +36,7 @@ namespace API.Models
     public int? jumbo { get; set; }
     public int? naczepaOplanegkowana { get; set; }
     public int? megaNaczepaOplanegkowana { get; set; }
+    public string mobile { get; set; }
+    public string email { get; set; }
     }
 }

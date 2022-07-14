@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule, FormGroup, Validators, FormBuilder} from '@angular/forms'
  
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,10 +23,10 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component'; 
 import { RegisterComponent } from './register/register.component'; 
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'; 
 import { MojeTransportyComponent } from './moje-transporty/moje-transporty.component';
 import { MojaFlotaComponent } from './moja-flota/moja-flota.component';
-import { DaneFirmyComponent } from './dane-firmy/dane-firmy.component'; 
+import { DaneFirmyComponent } from './dane-firmy/dane-firmy.component';
 const routes: Routes = [
    { path: 'second-component', component: ResgisterComponent },
   { path: '', component: HomeComponent },
@@ -36,7 +36,9 @@ const routes: Routes = [
     runGuardsAndResolvers:'always',
     canActivate:[AuthGuard],
     children:[
-    // { path: 'second-component', component: ResgisterComponent },
+      { path: 'owntransport', component: MojeTransportyComponent },
+      { path: 'owntruck', component: MojaFlotaComponent },
+      { path: 'company', component: DaneFirmyComponent },
     // { path: '', component: RegisterComponent },
       
     ]
@@ -56,15 +58,15 @@ const routes: Routes = [
     ResgisterComponent, 
     TestErrorsComponent,
     NotFoundComponent,
-    ServerErrorComponent, RegisterComponent, MojeTransportyComponent, MojaFlotaComponent, DaneFirmyComponent
+    ServerErrorComponent, RegisterComponent
   ],
   imports: [
     BrowserModule,   DropDownListModule, 
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule,
-    SharedModule,
-     RouterModule.forRoot(routes) 
+    FormsModule ,
+    SharedModule,  
+     RouterModule.forRoot(routes) , 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi :true

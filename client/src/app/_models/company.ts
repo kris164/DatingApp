@@ -1,5 +1,6 @@
 export interface company {
-
+    email: string
+    mobile: string 
     regon: string
     nip: string
     statusNip: string

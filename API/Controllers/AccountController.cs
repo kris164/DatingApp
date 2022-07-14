@@ -27,8 +27,8 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Register(User registerDto){
 
 
-            if  (await NipExists(registerDto.nip)) 
-                return BadRequest("nip juz istenieje");
+            if  (await  UserExists(registerDto.UserName)) 
+                return BadRequest("Login już istenieje");
  
                 using var hmac = new HMACSHA512();
                 var user = new API.Models.User{ 
@@ -55,6 +55,8 @@ namespace API.Controllers
                      jumbo=registerDto.jumbo,
                      naczepaOplanegkowana=registerDto.naczepaOplanegkowana,
                      megaNaczepaOplanegkowana=registerDto.megaNaczepaOplanegkowana,
+                     mobile=registerDto.mobile,
+                     email=registerDto.email,
 
                     };
 

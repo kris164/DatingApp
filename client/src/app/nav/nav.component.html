@@ -10,22 +10,17 @@ position: fixed;   width: 100%;
     z-index: 10;     /* Allow the centering to work */
 	margin: 0 auto;">
  
-  <a href="/pl" class="layout-header-logo"><img src="/assets/images/logo.png?ts=20190228-1401" alt="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k." title="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k."></a>
+  <a href="/" class="layout-header-logo"><img src="/assets/images/logo.png?ts=20190228-1401" alt="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k." title="Maszoński Logistic Sp. z&amp;nbsp;o.o.&amp;nbsp;Sp.k."></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto"  style="		list-style: none;">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+      
       <ng-container  *ngIf="accountService.currentUserSource$ | async">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/orders" routerLinkActive="active" aria-current="page" style=" margin-left: 25px;  color: #f5f5f5; font-family: effra,Arial,Helvetica,sans-serif; font-size: 1.0em;"   >Firma</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/second-component" routerLinkActive="active" aria-current="page"   style="margin-left: 25px;  color: #f5f5f5;  font-family: effra,Arial,Helvetica,sans-serif; font-size:1.0em;"  >Przewoźnik</a>
-      </li>
+        <a class="nav-link" routerLink="/orders" routerLinkActive="active" aria-current="page" style=" margin-left: 25px;  color: #f5f5f5; font-family: effra,Arial,Helvetica,sans-serif; font-size: 1.0em;"   >Zlecenia</a>
+      </li> 
       <li class="nav-item">
         <a class="nav-link" routerLink="/errors" routerLinkActive="active" aria-current="page"   style="margin-left: 25px;   color: #f5f5f5; font-family: effra,Arial,Helvetica,sans-serif; font-size: 1.0em;"    >Errors</a>
       </li>
@@ -40,7 +35,12 @@ position: fixed;   width: 100%;
         </button>
         <ul id="dropdown-basic mt-3" *dropdownMenu class="dropdown-menu"
             role="menu" aria-labelledby="button-basic"> 
-          <li role="menuitem"><a class="dropdown-item" href="#">Panel przewoźnika</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Moje transporty</a></li>
+         
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Moja flota</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Dane firmy</a></li>
           <li class="divider dropdown-divider"></li>
           <li role="menuitem"> <a class="dropdown-item" (click)="logout()">Wyloguj</a>
           </li>
