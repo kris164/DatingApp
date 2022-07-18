@@ -7,16 +7,21 @@ import { AccountService } from '../_services/account.service';
 import { ToolbarComponent, MenuAnimationSettingsModel } from '@syncfusion/ej2-angular-navigations';
 
 @Component({
+  
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  
+  public gridData;
+  public pagesettings;
   model: any = {}
   loggedIn: boolean;
 
-  constructor(public accountService: AccountService, private router: Router, private toastr:ToastrService) { }
+  constructor(public accountService: AccountService, private router: Router, private toastr:ToastrService) {
+    this.gridData = (window as any).gridData;
+    this.pagesettings = { pageCount: 3, pageSize: 7 };
+   }
 
   ngOnInit(): void {
 
@@ -32,6 +37,18 @@ export class NavComponent implements OnInit {
        
     });
   }
+
+
+  mojaflota()
+  {
+
+  }
+
+  mojetransporty()
+  {
+
+  }
+
 
   private animationSettings: MenuAnimationSettingsModel = { effect: 'None' };
 

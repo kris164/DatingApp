@@ -1,0 +1,20 @@
+
+<h4 style="margin-top:100px; "> </h4>
+<p>Lista przewoźników! (tylko admin)</p>
+ 
+
+
+ 
+  <ejs-grid [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar'
+  (actionComplete)="actionComplete($event)"  >
+ <!--<ejs-grid #grid [dataSource]='data' [allowPaging]='true' [allowFiltering]='true' [allowSelection]='true' [selectionSettings]='selectionOptions' [editSettings]='editSettings' [toolbar]='toolbar' [pageSettings]='pageOptions' [filterSettings]='filterOptions' (rowDataBound)='rowDataBound($event)'   (actionComplete)="actionComplete($event)">-->
+        <e-columns>
+         <e-column field='accepted' displayAsCheckBox="true" headerText='Zatwierdzony'  editType= 'booleanedit'  width=90 ></e-column> 
+        <e-column field='userName' headerText='Użytkownik' textAlign='Right' width=90></e-column>
+        <e-column field='nazwa' headerText='Nazwa' width=120></e-column>
+        <e-column field='nip' headerText='NIP' textAlign='Right' format='C2' width=90></e-column>
+        <e-column field='mobile' headerText='Tel.' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='email' headerText='email' textAlign='Right' format='yMd' width=120></e-column>
+        <e-column field='id_kontrah' headerText='id_kontrah' textAlign='Right' format='yMd' width=120></e-column> 
+        </e-columns>
+    </ejs-grid>

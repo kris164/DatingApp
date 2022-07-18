@@ -6,7 +6,7 @@ namespace API.Models
 {
     public partial class User 
     {
-        public int? Id { get; set; }
+        public int  Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public byte[] PasswordHash { get; set; }
@@ -38,5 +38,7 @@ namespace API.Models
     public int? megaNaczepaOplanegkowana { get; set; }
     public string mobile { get; set; }
     public string email { get; set; }
+    public int Id_kontrah { get; set; } // z [Gielda_test].[dbo].[KONTRAHENCI]
+    public bool accepted { get; set; }
     }
 }

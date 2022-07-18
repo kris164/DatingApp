@@ -11,6 +11,23 @@ import { company } from '../_models/company';
   providedIn: 'root'
 })
 export class AccountService {
+   //return this.http.get<Order[]>(this.baseUrl + 'orders');
+ 
+
+
+
+   existsinmaszon(model: company) {
+    return this.http.post(this.baseUrl + 'account/existsinmaszon', model).pipe(
+      map((user: company )=> {
+        { 
+          localStorage.setItem('user', JSON.stringify(user))
+          this.currentComapnySource.next(user);
+        }
+        return user;
+      })
+    
+      )
+   }
 
   baseUrl= 'https://localhost:5002/api/';
   private currentUserSource = new ReplaySubject<User>(1);
@@ -22,6 +39,7 @@ export class AccountService {
   totalAngularPackages: any;
     localVar:any;
     countries:Order[] = []
+    companies:company[] = []
   constructor(private http: HttpClient) { 
    }
 
@@ -38,6 +56,14 @@ export class AccountService {
       })
       );
    }
+
+
+
+   async getCompanies(){
+    const data = await this.http.get<company[]>(this.baseUrl + 'users').toPromise();
+    //console.log("Data: " + JSON.stringify(data)); 
+    return data;
+  }
 
     async fetchData2(){
     const data = await this.http.get<Order[]>(this.baseUrl + 'orders').toPromise();
@@ -68,41 +94,14 @@ export class AccountService {
           posts.forEach( post => { 
             console.log('bbbbb' + post.idZlecenia + ' NrZlecenia:' + post.nrZlecenia);
             this.countries.push(post);
+            this.countries.push(post);
           
           }) ;
 
           
           return this.countries;
        });
-
-   
-
-   // this.http.get("https://swapi.dev/api/people/1")
-   // .subscribe(response => console.log(response));
-
- // this.http.get('https://api.npms.io/v2/search?q=scope:angular')
- // .subscribe(response =>  {this.localVar = response; console.log(response)});
-
- //   this.http.get(this.baseUrl + 'orders')
- //  .subscribe(response => {this.totalAngularPackages = response});
- //  this.http.get<[]>(this.baseUrl + 'orders').subscribe(countries => this.countries = countries);
- // 
- //   
-
- //   return this.localVar;
-  // return this.http.get(this.baseUrl + 'orders')
-   // .subscribe();s
-
-  
-
-  // 
-  // this.http.get('https://api.npms.io/v2/search?q=scope:angular').pipe(map(data => {})).subscribe(result => {
-  //   console.log(result);
-  // });
-
-  // return  this.http.get('https://api.npms.io/v2/search?q=scope:angular').pipe(map(data => {})).subscribe(result => {
-  //   console.log(result);
-  // });
+ 
 }
 
    orders(){ 
@@ -170,9 +169,13 @@ register(model:company){
     return user;
   })
 
-  )
-  
+  ) 
 }
+
+update(model:company){
+  return this.http.post(this.baseUrl + 'account/updateuser', model).pipe( )  
+}
+ 
 
    setCurrentUser(user: User ){
     this.currentUserSource.next(user);

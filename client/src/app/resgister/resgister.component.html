@@ -4,7 +4,7 @@
 <div class="control-container"  >  
   <form id="formId" #registerForm="ngForm"   novalidate="">
     <ejs-carousel [selectedIndex]="selectedIndex" [autoPlay]="false" [showIndicators]="false" [scrollLeft]="false"  [draggable]="false"
-    [buttonsVisibility]="false" [enableTouchSwipe]="false" [loop]="false"   
+    [buttonsVisibility]="true" [enableTouchSwipe]="false"  [loop]="false"
     
     >
       <e-carousel-items >
@@ -146,15 +146,15 @@
                 <div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">
 
                   <div class="form-group template">
-                    <div id="UserName-no" class="e-float-input" [ngClass]="{'e-success': mobilenum.valid}">
-                        <input (ngModelChange)="saverange($event)"  type="text" id="mobileno" name="UserName" [(ngModel)]="company.UserName" #mobilenum="ngModel" required  >
+                    <div id="UserName-no" class="e-float-input" [ngClass]="{'e-success': UserName.valid}">
+                        <input (ngModelChange)="saverange($event)"  type="text" id="UserNameno" name="UserName" [(ngModel)]="company.UserName" #UserName="ngModel" required  >
                        
                         <label class="e-float-text" [ngClass]="{'e-label-top': company.UserName !== '' , 'e-label-bottom':  company.UserName == ''}" for="name">Login</label>                                                        
                     </div>
-                    <span class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.required && (mobilenum.dirty || mobilenum.touched)" >
+                    <span class="e-error" *ngIf="UserName.errors && UserName.errors.required && (UserName.dirty || UserName.touched)" >
                         * Podaj swój Login
                     </span>
-                    <span  class="e-error" *ngIf="mobilenum.errors && mobilenum.errors.pattern && (mobilenum.dirty || mobilenum.touched)" >
+                    <span  class="e-error" *ngIf="UserName.errors && UserName.errors.pattern && (UserName.dirty || UserName.touched)" >
                         * Podaj swój Login
                     </span>
                 </div>
@@ -190,7 +190,7 @@
 
                     <div class="form-group template">
                         <div id="mobile-no" class="e-float-input" [ngClass]="{'e-success': mobilenum.valid}">
-                            <input (ngModelChange)="saverange($event)"  type="number" id="mobileno" name="mobile" [(ngModel)]="company.mobile" #mobilenum="ngModel" required pattern="^[0-9]{10}$">
+                            <input (ngModelChange)="saverange($event)"  type="text" id="mobileno" name="mobile" [(ngModel)]="company.mobile" #mobilenum="ngModel" required pattern="^[0-9]{10}$">
                            
                             <label class="e-float-text" [ngClass]="{'e-label-top': company.mobile !== '' , 'e-label-bottom':  company.mobile == ''}" for="name">Telefon</label>                                                        
                         </div>

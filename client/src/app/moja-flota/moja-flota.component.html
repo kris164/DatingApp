@@ -1,1 +1,161 @@
-<p>moja-flota works!</p>
+ 
+<h4 style="margin-top:100px; ">moja flota</h4>
+<div class="control_wrapper" id="control_wrapper" style="margin: 25px auto;">  
+    <div class="container">
+      <div class="row" style="margin-top: 20px;">
+          <div class="col-sm-8">   
+              <div class="stepper-input stepper__input">
+                <h4 style="color:#16489d;">Ciągnik siodłowy</h4> <hr>
+              </div>
+          </div>
+            <div class="col-sm-4"> 
+                <div class="stepper-input stepper__input">
+                    <button class="toggle-less"  (click)="toggleLess_ciagnik_siodlowy()">
+                      <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                    </button>
+                    <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                       {{renderedValue_ciagnik_siodlowy}}  
+                    </div>
+                    <button class="toggle-more" (click)="toggleMore_ciagnik_siodlowy()">
+                      <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                    </button>
+                </div> 
+            </div>
+      </div> 
+
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-8">   
+            <div class="stepper-input stepper__input">
+              <h4 style="color:#16489d;">Ciągnik trójosiowy</h4> <hr>
+            </div>
+        </div>
+          <div class="col-sm-4"> 
+              <div class="stepper-input stepper__input">
+                  <button class="toggle-less"  (click)="toggleLess_ciagnik_trojosiowy()">
+                    <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                  </button>
+                  <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                     {{renderedValue_ciagnik_trojosiowy}}  
+                  </div>
+                  <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy()">
+                    <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                  </button>
+              </div> 
+          </div>
+        </div> 
+
+
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-8">   
+                <div class="stepper-input stepper__input">
+                  <h4 style="color:#16489d;">Ciągnik typu mega</h4> <hr>
+                </div>
+            </div>
+              <div class="col-sm-4"> 
+                  <div class="stepper-input stepper__input">
+                      <button class="toggle-less"  (click)="toggltoggleLess_ciagnik_trojosiowy_typu_mega()">
+                        <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                      </button>
+                      <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                         {{renderedValue_ciagnik_typu_mega}}  
+                      </div>
+                      <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy_typu_mega()">
+                        <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                      </button>
+                  </div> 
+              </div>
+            </div> 
+
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-sm-8">   
+                    <div class="stepper-input stepper__input">
+                      <h4 style="color:#16489d;">Ciągnik typu mega</h4><p>regul. wysokość sidła)</p> <hr>
+                    </div>
+                </div>
+                  <div class="col-sm-4"> 
+                      <div class="stepper-input stepper__input">
+                          <button class="toggle-less"  (click)="toggltoggleLess_ciagnik_trojosiowy_typu_mega_regul()">
+                            <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                          </button>
+                          <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                             {{renderedValue_ciagnik_typu_mega_regul}}  
+                          </div>
+                          <button class="toggle-more" (click)="toggleMore_ciagnik_trojosiowy_typu_mega_regul()">
+                            <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                          </button>
+                      </div> 
+                  </div>
+                </div>
+                
+                
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-8">   
+                        <div class="stepper-input stepper__input">
+                          <h4 style="color:#16489d;">Jumbo samochód z przyczepą</h4>  <hr>
+                        </div>
+                    </div>
+                      <div class="col-sm-4"> 
+                          <div class="stepper-input stepper__input">
+                              <button class="toggle-less"  (click)="toggltoggleLess_jumbo_z_przyczepa()">
+                                <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                              </button>
+                              <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                 {{renderedValue_value_jumbo_z_przyczepa}}  
+                              </div>
+                              <button class="toggle-more" (click)="toggleMore_jumbo_z_przyczepa()">
+                                <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                              </button>
+                          </div> 
+                      </div>
+                    </div> 
+
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-8">   
+                            <div class="stepper-input stepper__input">
+                              <h4 style="color:#16489d;">Naczepa oplandekowana</h4>  <hr>
+                            </div>
+                        </div>
+                          <div class="col-sm-4"> 
+                              <div class="stepper-input stepper__input">
+                                  <button class="toggle-less"  (click)="toggleLess_naczepa_oplandekowana()">
+                                    <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                  </button>
+                                  <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                     {{renderedValue_naczepa_oplandekowana}}  
+                                  </div>
+                                  <button class="toggle-more" (click)="toggleMore_naczepa_oplandekowana()">
+                                    <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                  </button>
+                              </div> 
+                          </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-sm-8">   
+                                <div class="stepper-input stepper__input">
+                                  <h4 style="color:#16489d;">Mega naczepa oplandekowana</h4>  <hr>
+                                </div>
+                            </div>
+                              <div class="col-sm-4"> 
+                                  <div class="stepper-input stepper__input">
+                                      <button class="toggle-less"  (click)="toggleLess_mega_naczepa_oplandekowana()">
+                                        <img src="https://angular-stepper-input.stackblitz.io/assets/minus.svg" [attr.alt]="ariaLabelLess" />
+                                      </button>
+                                      <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+                                         {{renderedValue_mega_naczepa_oplandekowana}}  
+                                      </div>
+                                      <button class="toggle-more" (click)="toggleMore_mega_naczepa_oplandekowana()">
+                                        <img src="https://angular-stepper-input.stackblitz.io/assets/plus.svg" [attr.alt]="ariaLabelMore" />
+                                      </button>
+                                  </div> 
+                              </div>
+                            </div>
+
+
+
+    </div> 
+</div> 

@@ -21,10 +21,13 @@ namespace API.Controllers
         {
             _tokenService = tokenService;
             _context = context;
-        }
+        } 
+        
 
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(User registerDto){
+
+                int _idKOntr = await GetIdKontahenta(CleanNip(registerDto.nip));
 
 
             if  (await  UserExists(registerDto.UserName)) 
@@ -57,7 +60,7 @@ namespace API.Controllers
                      megaNaczepaOplanegkowana=registerDto.megaNaczepaOplanegkowana,
                      mobile=registerDto.mobile,
                      email=registerDto.email,
-
+                     Id_kontrah = _idKOntr
                     };
 
                     _context.Add(user);
@@ -74,7 +77,7 @@ namespace API.Controllers
                 var user = await _context.Users
                 .SingleOrDefaultAsync(x=>x.UserName == loginDto.Username);
                 if (user == null)
-                return Unauthorized("Invalid username");
+                return Unauthorized("Nie znaleziono użytkownika");
 
                 using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -83,8 +86,13 @@ namespace API.Controllers
                 for(int i = 0; i< computedHash.Length;i++ )
                 {
                     if(computedHash[i] != user.PasswordHash[i]) 
-                    return Unauthorized("Invalid password") ;
+                    return Unauthorized("Błędne hasło") ;
                 }
+
+                 var userAccepted = await _context.Users
+                .SingleOrDefaultAsync(x=>x.UserName == loginDto.Username && x.accepted == true);
+                if (userAccepted == null)
+                return Unauthorized("Użytkownik nie został zaakceptowany");
 
                    return new UserDto{
                        Username=user.UserName,
@@ -99,6 +107,50 @@ namespace API.Controllers
 
          private async Task<bool> NipExists(string nip){
             return await _context.Users.AnyAsync(z => z.nip == nip);
+        }
+
+         private async Task<bool> ComanyExistsInMaszon(string nip){
+            var uuu = await _context.Kontrahencis.AnyAsync(z =>  z.Nip  == nip);
+            return await _context.Kontrahencis.AnyAsync(z =>  z.Nip  == nip);
+        }
+
+
+          private async Task<int> GetIdKontahenta(string nip){ 
+            return (await  ComanyExistsInMaszon(nip)) ?  await _context.Kontrahencis.Where(z =>   z.Nip   ==  nip).Select(z=>z.IdKontrah).FirstAsync()  : 0; 
+        }
+
+
+           private async Task<User> GetUserById(int Id){ 
+            return await _context.Users.FindAsync(Id); 
+        }
+
+         [HttpPost("existsinmaszon")]
+        public async Task<ActionResult<bool>>  ExistsInMaszon(User registerDto){ 
+             return await _context.Kontrahencis.AnyAsync(z =>  z.Nip  == registerDto.nip);  
+        }
+
+
+
+        [HttpPost("updateuser")]
+        public async Task<ActionResult<bool>>  UpdateUser(User user){ 
+
+            User u = await GetUserById(user.Id);
+            u.email = user.email != null ? user.email : u.email; 
+            u.nazwa = user.nazwa != null ? user.nazwa : u.nazwa; 
+            u.mobile = user.mobile != null ? user.mobile : u.mobile;  
+            u.Id_kontrah = user.Id_kontrah; 
+            u.accepted = user.accepted; 
+
+            _context.Update(u);
+             if (_context.SaveChanges() > 0)                
+                    return true;            
+            else            
+               return false;  
+        }
+
+        private string CleanNip(string nip)
+        { 
+            return nip.Replace("-", "").Replace(" ", "") ;
         }
     }
 }

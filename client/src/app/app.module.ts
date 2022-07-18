@@ -27,10 +27,12 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { MojeTransportyComponent } from './moje-transporty/moje-transporty.component';
 import { MojaFlotaComponent } from './moja-flota/moja-flota.component';
 import { DaneFirmyComponent } from './dane-firmy/dane-firmy.component';
+import { CarriersComponent } from './carriers/carriers.component';
 const routes: Routes = [
    { path: 'second-component', component: ResgisterComponent },
   { path: '', component: HomeComponent },
   { path: 'orders', component: ZleceniaComponent, canActivate:[AuthGuard] },
+  
   {
     path:'',
     runGuardsAndResolvers:'always',
@@ -39,6 +41,7 @@ const routes: Routes = [
       { path: 'owntransport', component: MojeTransportyComponent },
       { path: 'owntruck', component: MojaFlotaComponent },
       { path: 'company', component: DaneFirmyComponent },
+      { path: 'carriers', component: CarriersComponent },
     // { path: '', component: RegisterComponent },
       
     ]
@@ -58,7 +61,7 @@ const routes: Routes = [
     ResgisterComponent, 
     TestErrorsComponent,
     NotFoundComponent,
-    ServerErrorComponent, RegisterComponent
+    ServerErrorComponent, RegisterComponent, CarriersComponent
   ],
   imports: [
     BrowserModule,   DropDownListModule, 

@@ -151,7 +151,7 @@
 .control-container {
  
   margin: 0 auto;
-  width: 600px;
+ 
 }
 
 .img-container {
@@ -237,4 +237,26 @@
 
 .row {
   margin-top: 20px;
+}
+
+
+.e-next {
+  background-color: #081a38;
+  display: none;
+}
+
+.e-previous  {
+  background-color: #081a38;
+  display: none;
+}
+
+
+.e-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div{
+  background-color:gray;
+}
+
+
+.e-carousel .e-carousel-indicators .e-indicator-bar.e-active .e-indicator div
+ {
+  background-color: red;
 }

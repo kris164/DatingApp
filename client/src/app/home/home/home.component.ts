@@ -8,8 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit { 
+
+  private isMobileResolution: boolean;
+
   registerMode = false; 
-  constructor(private router: Router ) { }
+  constructor(private router: Router ) {
+    
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+
+
+  }
 
   ngOnInit(): void {
    
@@ -27,6 +39,9 @@ cancelRegisterMode(event: boolean){
 }
 
 
+public getIsMobileResolution(): boolean {
+  return this.isMobileResolution;
+}
 
 }
 

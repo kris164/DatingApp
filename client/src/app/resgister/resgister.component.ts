@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { company } from '../_models/company';
 import { AccountService } from '../_services/account.service';
 import { GusService } from '../_services/gus.service';  
 import { DialogComponent } from '@syncfusion/ej2-angular-popups';
-import { isNullOrUndefined, EmitType } from '@syncfusion/ej2-base';
+import {  EmitType } from '@syncfusion/ej2-base';
 import { Router } from '@angular/router'; 
 import { FormValidator, FormValidatorModel } from '@syncfusion/ej2-inputs'; 
 import { FormControl, FormGroup, Validators, FormsModule, AbstractControl, FormBuilder } from '@angular/forms';
@@ -65,9 +65,9 @@ export class ResgisterComponent implements OnInit {
 
   reactForm: FormGroup;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private gusService: GusService, private router: Router, private builder: FormBuilder) {
-
-
+  constructor(private accountService: AccountService, private toastr: ToastrService, private gusService: GusService,
+     private router: Router, private builder: FormBuilder, private ElByClassName: ElementRef) {
+ 
     this.createForm();
 
    }
@@ -90,6 +90,7 @@ export class ResgisterComponent implements OnInit {
    
 
     this.company = {
+      id:0,
       regon: "",
       nip: "",
       statusNip: "",
@@ -118,7 +119,9 @@ export class ResgisterComponent implements OnInit {
       UserName: "",
       UsernameDto:  "Dave" ,
       email: "",
-      mobile: "",
+      mobile: "", 
+      accepted: 0,
+      Id_kontrah: 0 ,
     };
 
     
@@ -180,7 +183,12 @@ onSubmit() {
      this.company.email="" 
      this.company.mobile="" 
      this.CheckIsValid();
+
+  if(this.accountService.existsinmaszon(this.company))
+  {    
+     this.toastr.success("Nip jest w bazie M. " + this.company.nip);
   }
+}
 
   register3(){}
 
@@ -239,6 +247,17 @@ onSubmit() {
   this.CheckIsValid();
   this.CheckIsSecondValid();
   carouselObj.next();
+
+
+  let elements = document.querySelectorAll('e-next');
+
+  const btnElement = (<HTMLElement>this.ElByClassName.nativeElement).querySelector(
+    'e-next'
+    );
+
+    var domRepresentation = document.getElementsByClassName('e-next');
+ 
+
     }
 
   

@@ -1,4 +1,5 @@
 export interface company {
+    id:number,
     email: string
     mobile: string 
     regon: string
@@ -28,4 +29,6 @@ export interface company {
     Password: string
     UserName: string
     UsernameDto: string
+    Id_kontrah: number
+    accepted: number
 }

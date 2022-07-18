@@ -21,6 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if(error){
           switch(error.status)  {
           case 400:
+            
             if(error.error.errors){
               const modelStateErrors =[];
 
@@ -38,6 +39,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             case 401:
               this.toastr.error(error.error, error.status) 
+           
               break;
             case 404:
                this.router.navigateByUrl('/not-found');
