@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.GusModel;
 using BIRService;
 using BIRService.Models;
+using API.Controllers.Tools;
 
 namespace API.Controllers
 {
@@ -21,7 +22,7 @@ namespace API.Controllers
             [HttpGet("{nip}")]
             public async Task<ActionResult<DanePodmiotu>> GetCompany(string nip)
             {
-                 return await _birSearchService.GetCompanyDataByNipIdAsync(nip);
+                 return await _birSearchService.GetCompanyDataByNipIdAsync(Nip.CleanNip(nip));
             } 
     }
 }

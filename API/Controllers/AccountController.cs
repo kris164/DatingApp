@@ -10,7 +10,7 @@ using API.Models ;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using API.Controllers.Tools;
 namespace API.Controllers
 {
     public class AccountController : BaseApiController
@@ -27,7 +27,7 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(User registerDto){
 
-                int _idKOntr = await GetIdKontahenta(CleanNip(registerDto.nip));
+                int _idKOntr = await GetIdKontahenta(Nip.CleanNip(registerDto.nip));
 
 
             if  (await  UserExists(registerDto.UserName)) 
@@ -148,9 +148,6 @@ namespace API.Controllers
                return false;  
         }
 
-        private string CleanNip(string nip)
-        { 
-            return nip.Replace("-", "").Replace(" ", "") ;
-        }
+    
     }
 }

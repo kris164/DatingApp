@@ -29,6 +29,6 @@ export interface company {
     Password: string
     UserName: string
     UsernameDto: string
-    Id_kontrah: number
+    id_kontrah: number
     accepted: number
 }

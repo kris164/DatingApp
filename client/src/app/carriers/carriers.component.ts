@@ -55,7 +55,7 @@ public company: company;
       email: "",
       mobile: "", 
       accepted: 0,
-      Id_kontrah: 0 ,
+      id_kontrah: 0 ,
     };
     this.data = await  this.accountService.getCompanies();
     this.editSettings = { allowEditing: true, allowAdding: false, allowDeleting: true, mode: 'Dialog' };
@@ -73,23 +73,14 @@ public company: company;
     args.isSelectable = args.data.List % 5 === 0;
     }
 
-    actionComplete(args) {
-      if ((args.requestType === 'beginEdit' || args.requestType === 'add' || args.requestType === 'refresh')) {
-          const dialog = args.dialog;
-          const nip = 'nip';
-          dialog.showCloseIcon = false;
-         
-          // change the header of the dialog
-          dialog.header = args.requestType === 'beginEdit' ? 'Przewoźnik: ' + args.rowData['nip'] : 'Nowy Przewoźnik';
- 
-        } 
+    actionComplete(args) { 
 
       switch(args.requestType) {
         case 'save':
        this.company.email = args.data?.email; 
        this.company.nazwa = args.data?.nazwa; 
         this.company.mobile = args.data?.mobile; 
-        this.company.Id_kontrah = args.data?.Id_kontrah; 
+        this.company.id_kontrah = args.data?.id_kontrah; 
         this.company.accepted = args.data?.accepted; 
         this.company.nip = args.data?.nip; 
         this.company.id = args.data.id; 
@@ -111,6 +102,17 @@ public company: company;
         default:
           // code block
       }
+
+
+      if ((args.requestType === 'beginEdit' || args.requestType === 'add' || args.requestType === 'refresh')) {
+        const dialog = args.dialog;
+        const nip = 'nip';
+        dialog.showCloseIcon = false;
+       
+        // change the header of the dialog
+        dialog.header = args.requestType === 'beginEdit' ? 'Przewoźnik: ' + args.rowData['nip'] : 'Nowy Przewoźnik';
+
+      } 
 
     }
 

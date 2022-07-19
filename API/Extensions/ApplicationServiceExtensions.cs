@@ -18,7 +18,8 @@ namespace API.Extensions
             
                 services.AddScoped<ITokenService, TokenService>();
  
-                services.AddDbContext<Gielda_testContext>(options => options.UseSqlServer(@"Server=MTSSERWER12A\MSSQL2012SERVER;Database=Gielda_test;Trusted_Connection=True;"));
+                //services.AddDbContext<Gielda_testContext>(options => options.UseSqlServer(@"Server=MTSSERWER12A\MSSQL2012SERVER;Database=Gielda_test;Trusted_Connection=True;"));
+                services.AddDbContext<Gielda_testContext>(options => options.UseSqlServer(@"Data Source=MTSSERWER12A; Initial Catalog=Gielda_test; User Id=sa; Password=interL@N2012;"));
 
                 return services;
                 

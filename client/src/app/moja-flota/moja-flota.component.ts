@@ -69,7 +69,7 @@ export class MojaFlotaComponent implements OnInit {
       email: "",
       mobile: "", 
       accepted: 0,
-      Id_kontrah: 0 ,
+      id_kontrah: 0 ,
     };
 
 

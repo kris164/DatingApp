@@ -26,6 +26,12 @@ if (!/localhost/.test(document.location.host)) {
     
 })
 export class ZleceniaComponent implements OnInit {   
+
+   
+  public tooltipData01: Object = { isVisible: true, format: '##.## Km' };
+  public ticksData01: Object = { placement: 'After', format: '##.## Km', largeStep: 20, smallStep: 10, showSmallTicks: true };
+ 
+
     public customAttributes: Object;
     public filterOption: FilterSettingsModel = { type: 'Excel' };
     public pageSettings: PageSettingsModel;

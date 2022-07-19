@@ -22,7 +22,7 @@
                   
                             <div class="form-group template">
                                 <div class="e-float-input" [ngClass]="{'e-success': nip.valid}">
-                                    <input style="font-size: 22px;"  type="text" id="nip"     [(ngModel)]="company.nip" name="nip" required>
+                                    <input style="font-size: 22px;"  type="text" id="nip"     [(ngModel)]="company.nip" name="nip" title="Pod swój nr. NIP, sprawdzimy czy Twój numer juz istnieje w naszej bazie." required>
                                    
                                     <label class="e-float-text"  for="nip">Podaj NIP</label>                        
                                 </div>
@@ -411,6 +411,7 @@
           <ng-template #template>
             <figure class="img-container">
                <h3>Jesteś juz zalogoway. Konto zostało zarejstrowane, sprawdź swoją skrzynkę pocztową!</h3>
+               <h3>Musisz zaczekać na akytwację konta przez właścicela!</h3>
             </figure>
           </ng-template>
         </e-carousel-item>
